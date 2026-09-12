@@ -5,15 +5,18 @@ export default async (req, context) => {
         
         url.searchParams.delete("endpoint");
         const queryString = url.searchParams.toString();
-        
-        let targetUrl = `https://openapi.bukaolshop.id/${endpoint}`;
-        if (queryString) {
-            targetUrl += `?${queryString}`;
-        }
 
+        // Menggunakan domain resmi yang benar: bukaolshop.net
+        let targetUrl = `https://openapi.bukaolshop.net/${endpoint}`;
+        
         const token = Netlify.env.get("BUKAOLSHOP_TOKEN");
-        if (token) {
-            targetUrl += targetUrl.includes("?") ? `&token=${token}` : `?token=${token}`;
+        
+        // Gabungkan parameter dan token dengan benar
+        let separator = targetUrl.includes("?") ? "&" : "?";
+        if (queryString) {
+            targetUrl += `${separator}${queryString}&token=${token}`;
+        } else {
+            targetUrl += `${separator}token=${token}`;
         }
 
         const response = await fetch(targetUrl);
