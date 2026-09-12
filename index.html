@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANY CELL - Dashboard PPOB</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        body { background-color: #f0f2f5; color: #333; padding: 20px; display: flex; flex-direction: column; min-height: 100vh; }
+        
+        header { 
+            background: #ee4d2d; 
+            color: white; 
+            padding: 20px; 
+            border-radius: 12px; 
+            text-align: center; 
+            margin-bottom: 25px; 
+            box-shadow: 0 4px 10px rgba(238,77,45,0.3); 
+        }
+        header h1 { font-size: 26px; margin-bottom: 5px; font-weight: bold; }
+        header p { font-size: 14px; opacity: 0.9; }
+
+        /* Grid Responsif Otomatis untuk HP & Tablet */
+        .container { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px; 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            width: 100%;
+            flex: 1;
+        }
+
+        /* Penyesuaian kolom grid berdasarkan ukuran layar */
+        @media (max-width: 1024px) {
+            .container { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .container { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        }
+
+        /* Gaya Kartu Mengambang Berbingkai */
+        .card { 
+            background: #ffffff; 
+            padding: 20px 10px 15px 10px; 
+            border-radius: 20px; 
+            /* Efek bayangan dan bingkai agar terlihat mengambang hidup */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04); 
+            text-align: center; 
+            cursor: pointer; 
+            transition: all 0.25s ease-in-out; 
+            border: 1px solid rgba(0, 0, 0, 0.02);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        
+        .card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 12px 25px rgba(238, 77, 45, 0.18), 0 4px 10px rgba(0, 0, 0, 0.06);
+            border-color: rgba(238, 77, 45, 0.3);
+        }
+
+        .card img { 
+            width: 60px; 
+            height: 60px; 
+            object-fit: contain; 
+            margin-bottom: 12px; 
+            border-radius: 12px;
+        }
+
+        .card p { 
+            font-size: 14px; 
+            font-weight: 600; 
+            color: #333; 
+        }
+
+        .status { 
+            margin-top: 30px; 
+            padding: 12px; 
+            background: #e2f0d9; 
+            color: #385723; 
+            border-radius: 8px; 
+            text-align: center; 
+            font-weight: bold; 
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ANY CELL</h1>
+        <p>Sistem Kasir & Layanan Digital Profesional</p>
+    </header>
+
+    <div class="container">
+        <a href="https://linkpulsa.jualan.me/digital/200941" class="card" target="_blank">
+            <img src="https://i.ibb.co.com/XtP44p4/phone.png" alt="Pulsa">
+            <p>Pulsa</p>
+        </a>
+        
+        <a href="https://linkpulsa.jualan.me/digital/202262" class="card" target="_blank">
+            <img src="https://i.ibb.co.com/5hqsqG8/message.png" alt="Telpon & Sms">
+            <p>Telpon & Sms</p>
+        </a>
+
+        <a href="https://linkpulsa.jualan.me/digital/214507" class="card" target="_blank">
+            <img src="https://i.ibb.co.com/hfp8tSb/ewallet.png" alt="E-Wallet">
+            <p>E-Wallet</p>
+        </a>
+
+        <a href="https://linkpulsa.jualan.me/digital/202246" class="card" target="_blank">
+            <img src="https://i.ibb.co.com/89Y4dTK/electrical-energy.png" alt="Listrik PLN">
+            <p>Listrik PLN</p>
+        </a>
+
+        <a href="https://linkpulsa.digitalshop.id/digital/402220" class="card" target="_blank">
+            <img src="https://iconlogovector.com/uploads/images/2023/02/lg-ab245e14c10da5c9ffb63f047c1b7fdc74.jpg" alt="Axis">
+            <p>Axis</p>
+        </a>
+
+        <a href="https://linkpulsa.digitalshop.id/digital/403882" class="card" target="_blank">
+            <img src="https://play-lh.googleusercontent.com/DBzJQ2z8p3n_YPQkmbc6luCfO3OhafRkOZimMoXFXBMoUokLu6RPDRgVM86U_QkRVNE" alt="Telkomsel">
+            <p>Telkomsel</p>
+        </a>
+
+        <a href="https://linkpulsa.digitalshop.id/digital/405409" class="card" target="_blank">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmA5YGnKvQOenqCcOPUKx-cxjMIMqWse4Cpw&usqp=CAU" alt="Indosat">
+            <p>Indosat</p>
+        </a>
+
+        <a href="https://linkpulsa.digitalshop.id/digital/407320" class="card" target="_blank">
+            <img src="https://images.bukaolshop.com/hosting/130585/6c0f66a0e1ea332048.png" alt="Smartfren">
+            <p>Smartfren</p>
+        </a>
+
+        <a href="https://linkpulsa.jualan.me/digital/202787" class="card" target="_blank">
+            <img src="https://media.karousell.com/media/photos/products/2017/07/27/kuota_3tri_harga_mulai_dari_19ribuan_1501147412_b373f0f7.jpg" alt="Tri">
+            <p>Tri</p>
+        </a>
+
+        <a href="https://linkpulsa.jualan.me/digital/215018" class="card" target="_blank">
+            <img src="https://iconlogovector.com/uploads/images/2024/09/lg-66ef50c24df06-XL-Axiata-operator-telekomunik.webp" alt="XL">
+            <p>XL</p>
+        </a>
+
+        <a href="https://linkpulsa.jualan.me/digital/202769" class="card" target="_blank">
+            <img src="https://images.tokopedia.net/img/cache/215-square/GAnVPX/2020/9/24/a6dd7b87-648e-4deb-aeb0-8a08745916cb.jpg" alt="By.U">
+            <p>By.U</p>
+        </a>
+
+        <a href="https://linkpulsa.jualan.me/digital/214788" class="card" target="_blank">
+            <img src="https://i.ibb.co.com/HprXGBCs/game-console.png" alt="Digital">
+            <p>Digital</p>
+        </a>
+
+        <a href="https://linkpulsa.jualan.me/digital/214788" class="card" target="_blank">
+            <img src="https://i.ibb.co.com/r4p250N/credit-card.png" alt="E-Toll">
+            <p>E-Toll</p>
+        </a>
+
+        <a href="https://linkpulsa.digitalshop.id/digital/205687" class="card" target="_blank">
+            <img src="https://i.ibb.co.com/924fPbb/medical.png" alt="Bayar Tagihan">
+            <p>Bayar Tagihan</p>
+        </a>
+    </div>
+
+    <div id="statusKoneksi" class="status">Status: Sistem Siap Digunakan di Tablet & HP</div>
+
+    <!-- Firebase SDK (Modular) -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "MASUKKAN_API_KEY_ANDA",
+            authDomain: "ppob-konter.firebaseapp.com",
+            databaseURL: "MASUKKAN_URL_DATABASE_ANDA_DISINI",
+            projectId: "ppob-konter",
+            storageBucket: "ppob-konter.appspot.com",
+            messagingSenderId: "977834144292",
+            appId: "1:977834144292:web:0d3..."
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        document.getElementById("statusKoneksi").innerText = "Status: Terhubung ke Firebase (Online & Responsif)";
+    </script>
+
+</body>
+</html>
