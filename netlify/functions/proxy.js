@@ -1,22 +1,26 @@
 export default async (req, context) => {
     try {
         const url = new URL(req.url);
-        const endpoint = url.searchParams.get("endpoint") || "v1/app/produk";
+        const endpoint = url.searchParams.get("endpoint") || "app/produk";
         
+        // Hapus parameter 'endpoint' agar tidak ikut terkirim ke target API BukaOlshop
         url.searchParams.delete("endpoint");
-        const queryString = url.searchParams.toString();
+        
+        // Base URL resmi BukaOlshop Open API
+        let targetUrl = `https://openapi.bukaolshop.net/v1/${endpoint}`;
 
-        // Menggunakan domain resmi yang benar: bukaolshop.net
-        let targetUrl = `https://openapi.bukaolshop.net/${endpoint}`;
-        
+        // Ambil token dari Environment Variable Netlify
         const token = Netlify.env.get("BUKAOLSHOP_TOKEN");
-        
-        // Gabungkan parameter dan token dengan benar
-        let separator = targetUrl.includes("?") ? "&" : "?";
+
+        if (token) {
+            // Masukkan token ke parameter query secara aman
+            url.searchParams.set("token", token);
+        }
+
+        // Gabungkan semua sisa parameter dengan rapi
+        const queryString = url.searchParams.toString();
         if (queryString) {
-            targetUrl += `${separator}${queryString}&token=${token}`;
-        } else {
-            targetUrl += `${separator}token=${token}`;
+            targetUrl += `?${queryString}`;
         }
 
         const response = await fetch(targetUrl);
