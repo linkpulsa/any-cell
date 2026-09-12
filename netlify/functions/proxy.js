@@ -18,7 +18,22 @@ export default async (req, context) => {
         }
 
         const response = await fetch(targetUrl);
-        const data = await response.json();
+        const textResult = await response.text();
+
+        // Cek apakah balasan dari BukaOlshop berbentuk JSON atau HTML error
+        let data;
+        try {
+            data = JSON.parse(textResult);
+        } catch (e) {
+            return new Response(JSON.stringify({ 
+                error: "BukaOlshop mengembalikan HTML/Bukan JSON", 
+                raw_response: textResult,
+                target_url: targetUrl 
+            }), {
+                status: 500,
+                headers: { "Content-Type": "application/json" }
+            });
+        }
 
         return new Response(JSON.stringify(data), {
             status: response.status,
